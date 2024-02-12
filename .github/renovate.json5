@@ -1,0 +1,41 @@
+{
+  // JSON5 spec: https://json5.org/
+  // Renovate docs: https://docs.renovatebot.com/configuration-options/
+
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",             // Use recommended settings
+    "helpers:pinGitHubActionDigests", // Pin GitHub action digests
+    ":enablePreCommit",               // Enable updates to pre-commit repos
+    ":gitSignOff"                     // Add Signed-off-by line to commit messages
+  ],
+  // Files to ignore
+  // "ignorePaths": [
+  //   "docs/requirements.txt"
+  // ],
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {"enabled": true},
+  "packageRules": [
+    {
+      // Update golang tag in dockerfile & golang version in workflows in a
+      // single PR"
+      "groupName": "golang version",
+      "matchDepNames": [
+        "^golang$"
+      ]
+    },
+    {
+      // Renovate's packages update too frequently, so we only schedule updates
+      // once a week to keep the noise down
+      "matchPackageNames": ["renovatebot/pre-commit-hooks"],
+      "schedule": ["before 9am on monday"]
+    }
+  ],
+  // "schedule": [
+  //   "before 7am on Tuesday"  // Update weekly
+  // ],
+  "semanticCommits": "disabled",
+  "timezone": "America/New_York"
+}

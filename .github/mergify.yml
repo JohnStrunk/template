@@ -1,0 +1,34 @@
+---
+# https://docs.mergify.com/
+
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - base=main
+      - "#approved-reviews-by>=1"
+      - "#changes-requested-reviews-by=0"
+      - label!=do-not-merge
+      # Branch protection rules are automatically enforced by GitHub/Mergify and
+      # need not be repeated here
+    actions:
+      queue:
+        merge_method: merge
+
+  - name: Automatic merge PRs from trusted contributors
+    conditions:
+      - base=main
+      - or:
+          - author=JohnStrunk
+          - author=renovate-bot  # Renovate bot - dependency updates
+      - "#changes-requested-reviews-by=0"
+      - label!=do-not-merge
+    actions:
+      queue:
+        merge_method: merge
+
+queue_rules:
+  - name: default
+    queue_conditions:
+      - base=main
+      - "#changes-requested-reviews-by=0"
+      - label!=do-not-merge
