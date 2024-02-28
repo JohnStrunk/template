@@ -17,3 +17,5 @@ rules:
     indent-sequences: consistent
   line-length:
     allow-non-breakable-inline-mappings: true
+  new-lines:
+    type: platform
