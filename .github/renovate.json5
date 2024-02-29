@@ -19,18 +19,46 @@
   "lockFileMaintenance": {"enabled": true},
   "packageRules": [
     {
-      // Update golang tag in dockerfile & golang version in workflows in a
-      // single PR"
+      "description": "Update golang tag in dockerfile & golang version in workflows in a single PR",
       "groupName": "golang version",
       "matchDepNames": [
         "^golang$"
       ]
     },
     {
-      // Renovate's packages update too frequently, so we only schedule updates
-      // once a week to keep the noise down
+      "description": "Update devcontainer images in a single PR",
+      "groupName": "devcontainer",
+      "matchFileNames": [".devcontainer/devcontainer.json"]
+    },
+    {
+      "description": "Update renovatebot/pre-commit-hooks weekly to decrease noise",
       "matchPackageNames": ["renovatebot/pre-commit-hooks"],
       "schedule": ["before 9am on monday"]
+    }
+  ],
+  "regexManagers": [
+    {
+      "customType": "regex",
+      "description": "devcontainer base image",
+      "fileMatch": [
+        "^.devcontainer/devcontainer.json$"
+      ],
+      "matchStrings": [
+        "\"image\"\\s*:\\s*\"(?<depName>.*?):(?<currentValue>.*?)(@(?<currentDigest>sha256:[a-f0-9]+))?\""
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "description": "devcontainer feature images",
+      "fileMatch": [
+        "^.devcontainer/devcontainer.json$"
+      ],
+      "matchStrings": [
+        // devcontainer features don't support sha256 digests
+        "\"(?<depName>.*?):(?<currentValue>.*?)\"\\s*:\\s*"
+      ],
+      "datasourceTemplate": "docker"
     }
   ],
   // "schedule": [

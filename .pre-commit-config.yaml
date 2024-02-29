@@ -23,6 +23,10 @@ repos:
       - id: check-added-large-files  # Prevents giant files from being committed
       - id: check-docstring-first    # Prevent code before docstring
       - id: check-json               # Check that JSON files are valid
+        exclude: |
+          (?x)^(
+                .devcontainer/devcontainer.json
+          )$
       - id: check-merge-conflict     # Check merge conflict strings
       - id: check-symlinks           # Ensure symlinks have a valid target
       - id: check-toml               # Ensure toml files are valid
@@ -103,3 +107,9 @@ repos:
       - id: detect-secrets
       #  args: ['--baseline', '.secrets.baseline']
       #  exclude: package.lock.json
+
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: "v1.0.0"
+    hooks:
+      # Check that JSON files are valid JSON5
+      - id: check-json5
