@@ -22,7 +22,20 @@
 		// Note: VSCode will fail to clone the dotfiles repository if there's a
 		// conflict in the known_hosts file, but the error message in very
 		// misleading.
-		"Update dotfiles": "chezmoi update --apply --verbose --force"
+		"Update dotfiles": "chezmoi update --apply --force"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"chrislajoie.vscode-modelines",
+				"DavidAnson.vscode-markdownlint",
+				"github.vscode-github-actions",
+				"redhat.vscode-yaml",
+				"shardulm94.trailing-spaces",
+				"stkb.rewrap",
+				"timonwong.shellcheck"
+			]
+		}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
