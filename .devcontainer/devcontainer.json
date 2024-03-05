@@ -3,7 +3,7 @@
 {
 	"name": "Debian",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:691e49f9553c20cd13dc3030daec47ad81a124a42049264ead32531d3af9f41f",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:33ff3550308c99ea0e0d63b61a03e8590588aee7c15c83077cb3cebed49a8861",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
