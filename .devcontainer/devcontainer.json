@@ -7,7 +7,7 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2.10.1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1.4.2": {},
 		"ghcr.io/devcontainers/features/github-cli:1.0.11": {},
 		"ghcr.io/devcontainers/features/node:1.4.0": {},
 		"ghcr.io/devcontainers-contrib/features/act:1.0.14": {},
@@ -23,7 +23,7 @@
 		// conflict in the known_hosts file, but the error message in very
 		// misleading. Using chezmoi to apply the dotfiles config is best-effort
 		// in case the user doesn't use it for their dotfiles.
-		"Update dotfiles": "if type chezmoi &> /dev/null; then chezmoi update --apply --force; fi"
+		"Update dotfiles": "if type chezmoi >/dev/null 2>&1; then chezmoi update --apply --force; fi"
 	},
 
 	"customizations": {
