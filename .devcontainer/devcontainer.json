@@ -23,7 +23,7 @@
 		// conflict in the known_hosts file, but the error message in very
 		// misleading. Using chezmoi to apply the dotfiles config is best-effort
 		// in case the user doesn't use it for their dotfiles.
-		"Update dotfiles": "command -v chezmoi >/dev/null 2>&1 && chezmoi update --apply --force || exit 0"
+		"Update dotfiles": "if type chezmoi &> /dev/null; then chezmoi update --apply --force; fi"
 	},
 
 	"customizations": {
