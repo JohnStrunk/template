@@ -9,7 +9,7 @@
 		// "ghcr.io/devcontainers/features/docker-in-docker:2.10.1": {},
 		// "ghcr.io/devcontainers/features/docker-outside-of-docker:1.4.3": {},
 		"ghcr.io/devcontainers/features/github-cli:1.0.11": {},
-		"ghcr.io/devcontainers/features/node:1.4.0": {},
+		"ghcr.io/devcontainers/features/node:1.4.1": {},
 		// "ghcr.io/devcontainers-contrib/features/act:1.0.14": {},
 		"ghcr.io/devcontainers-contrib/features/pre-commit:2.0.17": {}
 		// "ghcr.io/devcontainers-contrib/features/renovate-cli:2.0.15": {},
