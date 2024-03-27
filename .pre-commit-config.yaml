@@ -2,8 +2,10 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 
+# Need pipx?
+# > pip install --user --upgrade pipx
 # Install in your local dev environment
-# > pip install --upgrade --user pre-commit
+# > pipx install pre-commit
 # Enable the hooks for this repo
 # > pre-commit install
 
