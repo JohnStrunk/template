@@ -22,12 +22,12 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Set up Python
-        id: py-pc
+        id: setup-py
         # https://github.com/actions/setup-python
         # yamllint disable-line rule:line-length
         uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Enable cache for pre-commit hooks
         # https://github.com/actions/cache
@@ -35,18 +35,13 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           # yamllint disable-line rule:line-length
-          key: pre-commit|${{ steps.py-pc.outputs.python-version}}|${{ hashFiles('.pre-commit-config.yaml') }}
+          key: pre-commit|${{ steps.setup-py.outputs.python-version}}|${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
-            pre-commit|${{ steps.py-pc.outputs.python-version}}|
+            pre-commit|${{ steps.setup-py.outputs.python-version}}|
             pre-commit|
 
-      - name: Install pre-commit
-        run: |
-          pip install --upgrade pre-commit
-          pre-commit --version
-
       - name: Run pre-commit checks
-        run: pre-commit run -a
+        run: pipx run pre-commit run -a
 
       - name: Run pre-commit gc
-        run: pre-commit gc
+        run: pipx run pre-commit gc
