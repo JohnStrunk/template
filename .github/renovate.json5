@@ -36,7 +36,7 @@
       "schedule": ["before 9am on monday"]
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "customType": "regex",
       "description": "devcontainer base image",
