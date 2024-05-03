@@ -1,18 +1,11 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
 	"name": "Debian",
 	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:98a855f963d5d3ec742a7b94827b24b4f513fe5f5e010fbbb8654bafda6d498b",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		// "ghcr.io/devcontainers/features/docker-in-docker:2.10.2": {},
-		// "ghcr.io/devcontainers/features/docker-outside-of-docker:1.4.5": {},
 		"ghcr.io/devcontainers/features/github-cli:1.0.11": {},
 		"ghcr.io/devcontainers/features/node:1.4.1": {},
-		// "ghcr.io/devcontainers-contrib/features/act:1.0.14": {},
 		"ghcr.io/devcontainers-contrib/features/pre-commit:2.0.17": {}
-		// "ghcr.io/devcontainers-contrib/features/renovate-cli:2.0.15": {},
 	},
 
 	"postCreateCommand": {
