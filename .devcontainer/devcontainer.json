@@ -4,7 +4,7 @@
 	// https://github.com/devcontainers/templates/tree/main/src/debian
 	// Other base images: https://github.com/devcontainers/images
 	"name": "Debian",
-	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:80c71299090045b9779aa63e6eb03092d2f4e400292aceb39820ef80690c4612",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:40e2fc1acb373bee023181c56fcbf2a32397e7d2c8bb50e9bd0d8244b24d0f5c",
 
 	// Available features: https://containers.dev/features
 	"features": {
