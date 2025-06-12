@@ -5,13 +5,11 @@
 	// Other base images: https://github.com/devcontainers/images
 	"name": "Debian",
 	"image": "mcr.microsoft.com/devcontainers/base:bookworm@sha256:da67c59f82e057e0ccb81ec7d13fb50464c26f477638018e6de1b2623a008a3a",
-
 	// Available features: https://containers.dev/features
 	"features": {
 		"ghcr.io/devcontainers/features/node:1.6.2": {},
-		"ghcr.io/devcontainers-contrib/features/pre-commit:2.0.17": {}
+		"ghcr.io/devcontainers-extra/features/pre-commit:2.0.17": {}
 	},
-
 	"postCreateCommand": {
 		// Install pre-commit hooks in the background since they can take a
 		// while, and we want to minimize waiting during `git commit`
