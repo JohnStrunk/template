@@ -53,6 +53,9 @@
       ]
     }
   ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 0,
+  "rebaseWhen": "behind-base-branch",
   // "schedule": ["before 7am on Tuesday"],
   "semanticCommits": "disabled",
   "timezone": "America/New_York"
