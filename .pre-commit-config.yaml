@@ -2,11 +2,9 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 
-# Need pipx?
-# > pip install --user --upgrade pipx
-# Install in your local dev environment
-# > pipx install pre-commit
 # Enable the hooks for this repo
+# > pip install --user --upgrade uv
+# > uv tool install pre-commit
 # > pre-commit install
 
 # yamllint disable rule:line-length
@@ -61,6 +59,19 @@ repos:
       - id: yamllint
         args: ["--strict", "-c", ".github/yamllint-config.yaml"]
 
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.11.13"
+    hooks:
+      # Note: lint/fix before format
+      - id: ruff-check
+      # args: [ --fix ]
+      - id: ruff-format
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: "0.7.12"
+    hooks:
+      - id: uv-lock
+
   - repo: https://github.com/hadolint/hadolint
     rev: v2.12.0
     hooks:
@@ -76,19 +87,6 @@ repos:
           (?x)^(
                 .github/pull_request_template.md
             )$
-
-  - repo: https://github.com/psf/black
-    rev: "25.1.0"
-    hooks:
-      # Standardized Python code formatting
-      - id: black
-
-  - repo: https://github.com/PyCQA/isort
-    rev: "6.0.1"
-    hooks:
-      # Sort Python imports
-      - id: isort
-        args: ["--profile", "black", "--filter-files"]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: "40.36.8"
