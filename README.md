@@ -23,6 +23,12 @@ This is a template to serve as a starting point for new repos.
 ## New project checklist
 
 - [ ] Adjust the Mergify configuration to customize the merge conditions
+  - Consider enabling [Merge
+    protections](https://docs.mergify.com/merge-protections/) to enable
+    `Depends-On: <PR#>`, `Merge-After: <ISO 8601>`.
+  - Consider enforcing the merge queue (only allowing Mergify to merge PRs) by
+    [protecting the default
+    branch](https://dashboard.mergify.com/queues/deployment/enforcement).
 - [ ] Add a license to the project
 - [ ] Update the README with project-specific information
 - [ ] Update the devcontainer configuration based on the project's language
