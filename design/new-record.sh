@@ -93,21 +93,35 @@ function create_feature() {
 
 {Describe the feature and its purpose.}
 
-## Motivation
+## Acceptance Scenarios
 
-{Explain why this feature is needed.}
+{List the acceptance criteria or scenarios for this feature. They should be of
+the form: "Given <context>, when <event>, then <outcome>". These scenarios help
+define both when the feature is considered complete and how it can be tested.}
 
-## Acceptance Criteria
+## Functional requirements
 
-{List the criteria that must be met for this feature to be considered complete.}
+{An ordered list of functional requirements for this feature. These describe
+the individual capabilities that the feature must provide. They should
+implement the acceptance scenarios and be covered by the test plan.}
+
+## Implementation plan
+
+{Outline the steps or tasks required to implement this feature. This should
+include the technical approach and libraries or frameworks to be used.}
+
+## Test plan
+
+{Outline the testing strategy for this feature.}
 
 ## Dependencies
 
-{List any dependencies or related features.}
+{A list of dependencies or related features.}
 
 ## Additional Notes
 
-{Any other relevant information.}
+{Any other relevant information such as links to frameworks or documentation
+that provides background or more information about this feature.}
 EOF
     echo "$filename"
 }
