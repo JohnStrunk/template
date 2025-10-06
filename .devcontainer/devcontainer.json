@@ -8,8 +8,13 @@
     // Available features: https://containers.dev/features
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1.0.15": {},
-        "ghcr.io/devcontainers/features/node:1.6.3": {},
+        "ghcr.io/devcontainers/features/node:1.6.3": {
+            "version": "lts",
+            "installYarnUsingApt": "false"
+        },
         "ghcr.io/devcontainers-extra/features/pre-commit:2.0.18": {},
+		"ghcr.io/devcontainers-extra/features/shellcheck:1.0.0": {},
+		"ghcr.io/devcontainers-extra/features/uv:1.0.0": {},
         "ghcr.io/dhoeric/features/hadolint:1.0.0": {}
     },
     "postCreateCommand": {
