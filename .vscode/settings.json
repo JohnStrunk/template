@@ -8,6 +8,7 @@
             "matchCommandLine": true
         },
         "./design/new-record.sh": true,
-        "design/new-record.sh": true
+        "design/new-record.sh": true,
+        "bash design/new-record.sh": true
     }
 }

@@ -2,9 +2,24 @@
 description: Document a new architectural decision
 mode: agent
 ---
-# Document a new architectural decision
 
-Given the decision description provided as an argument, do this:
+# Documenting a New Architectural Decision
+
+The user input to you can be provided directly by the agent or as a command
+argument - you **MUST** consider it before proceeding with the prompt (if not
+empty).
+
+User input:
+
+$ARGUMENTS
+
+The text the user typed after `/madr` in the triggering message **is** the
+title of the decision record. Assume you always have it available in this
+conversation even if `$ARGUMENTS` appears literally below. Do not ask the user
+to repeat it unless they provided an empty command.
+
+Follow these steps to create a new MADR (Markdown Architectural Decision
+Record) file in the `design/` directory.
 
 - Run the script `design/new-record.sh -m "$ARGUMENTS"` from reporoot and
   parse its JSON output for the filename.
