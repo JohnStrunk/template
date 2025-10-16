@@ -4,7 +4,7 @@
     // https://github.com/devcontainers/images/tree/main/src/base-debian
     // The :debian tag is the latest Debian stable release
     // Other base images: https://github.com/devcontainers/images
-    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:4fe00dc6fc270f2239b6ec06bf35b7c3db6b52be07d22e3098309b7fe8769243",
+    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:2e826a6ae92e5744cc0a471a03b4411e64f6b7cc6af3adaecddad697f0018f10",
     // Available features: https://containers.dev/features
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1.0.15": {},
