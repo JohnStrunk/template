@@ -90,6 +90,12 @@ repos:
                 CLAUDE.md
             )$
 
+  - repo: https://github.com/Mergifyio/mergify-pre-commit
+    rev: "1.1.0"
+    hooks:
+      - id: validate-mergify-config-location
+      - id: validate-mergify-config
+
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: "41.154.1"
     hooks:
