@@ -87,6 +87,7 @@ repos:
         exclude: |
           (?x)^(
                 .github/pull_request_template.md |
+                .github/skills/.*/SKILL.md |
                 CLAUDE.md
             )$
 

@@ -49,14 +49,22 @@ def find_skill_md_files(base_dir: str) -> list[str]:
 def main() -> None:
     skill_files: list[str] = find_skill_md_files(SKILLS_DIR)
     rows: list[str] = []
+    skill_rows: list[tuple[str, str, str]] = []
     for skill_file in skill_files:
         name, description = extract_name_description(skill_file)
         if not name and not description:
             continue
+        rel_skill_path = os.path.relpath(skill_file, SKILLS_DIR)
+        parts = rel_skill_path.split(os.sep)
+        subpackage = ":".join(parts[:-2]) if len(parts) > 2 else ""
+        display_name = f"{subpackage}:{name}" if subpackage else name
         rel_path: str = os.path.relpath(skill_file, ".")
         link: str = f"[{rel_path}](../{rel_path})".replace("\\", "/")
-        rows.append(f"| {name or ''} | {description or ''} | {link} |")
+        skill_rows.append((display_name or "", description or "", link))
 
+    # Sort rows alphabetically by display_name (case-insensitive)
+    skill_rows.sort(key=lambda row: row[0].lower())
+    rows = [f"| {name} | {desc} | {lnk} |" for name, desc, lnk in skill_rows]
     table = "\n".join([TABLE_HEADER, TABLE_DIVIDER] + rows)
 
     # Path to the instructions file
