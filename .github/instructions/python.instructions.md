@@ -1,5 +1,6 @@
 ---
 applyTo: "**/*.py,**/pyproject.toml, **/.python-version"
+description: "Python development standards for code quality, formatting, linting, and testing"
 ---
 
 # Python development standards
@@ -15,12 +16,12 @@ standards.
 ## Package and environment management
 
 - This repository uses [uv](https://docs.astral.sh/uv/) as the package and
-  environment manager. Do **NOT** use pip, conda, or any other package manager
-  to install, update, or remove packages.
+  environment manager. **Do NOT use pip, conda, or any other package manager
+  to install, update, or remove packages.**
 - All package installations, updates, and removals must be performed using
   uv commands to ensure consistency across development environments.
-  - Install a package: `uv add <package-name>`. For development dependencies,
-    use `uv add --dev <package-name>`.
+  - Install a package (runtime dependency): `uv add <package-name>`.
+  - Install a package (development dependency): `uv add --dev <package-name>`
   - Remove a package: `uv remove <package-name>`
 - When executing Python scripts or modules, always use `uv run <command>` to
   ensure the correct environment is used.
@@ -31,20 +32,25 @@ standards.
   be installed using uv. For example, to install `ruff`, run: `uv tool install
   ruff`
 
-## Configuration files
-
-- The `pyproject.toml` file defines the project's dependencies and settings.
-  Any changes to dependencies must be reflected in this file. Configuration of
-  python tools such as linters and formatters must also be done here.
-- The `.python-version` file specifies the Python version for the project.
-
 ## Formatting and linting
 
 - All Python files must pass linting by `ruff`. After making **ANY** changes
   to a Python file, run `pre-commit run --files <filename>` to ensure
   compliance. Fix **ALL** linting and formatting errors reported.
-- Code must be fully documented and include type annotations for all functions,
-  methods, and classes.
+- Code must be fully documented and include type annotations for all
+  functions, methods, classes, and packages. Use reStructuredText style for
+  docstrings.
+  - Parameters and return values are documented using the `:param` and
+    `:returns:` directives in docstrings.
+  - Do not repeat type information in docstrings that is already present in
+    type annotations.
+  - Use `:raises` directive to document any exceptions that a function may
+    raise.
+  - Include usage examples in docstrings using the `Examples:` section. These
+    examples should be written in a way that they can be tested using
+    `doctest`.
+  - Class constructor parameters should be documented in the `__init__` method
+    docstring, not in the class docstring.
 
 Example properly documented and typed function:
 
@@ -67,6 +73,13 @@ def divide_numbers(a: float, b: float) -> float:
     """
     return a / b
 ```
+
+## Code structure
+
+- Keep code modular and organized. Each module should have a clear purpose
+  and be as small as possible while still being functional.
+- Use functional programming principles where possible. Avoid unnecessary
+  state and side effects.
 
 ## Testing
 
