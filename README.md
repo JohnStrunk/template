@@ -38,3 +38,44 @@ This is a template to serve as a starting point for new repos.
   tools
 - [ ] Update the [Copilot instructions file](.github/copilot-instructions.md)
   with project-specific information
+
+## Copilot Instructions Auto-Update Script
+
+This repository includes a script to update Copilot AI instruction files from
+the upstream template repository, merging with local changes.
+
+### Usage
+
+```bash
+.github/update-copilot-instructions.sh \
+  # Run update (modifies files)
+.github/update-copilot-instructions.sh --dry-run \
+  # Preview changes only
+```
+
+The script will fetch the latest versions of:
+
+- `.github/instructions/`
+- `.github/skills/`
+- `.github/prompts/`
+- `.github/agents/`
+- `AGENTS.md`
+- `CLAUDE.md`
+
+For each file, a three-way merge is performed between your local version, the
+base, and upstream. If a conflict occurs, a `.merged` file is created for
+manual resolution. All actions are logged to the console. The script can be run
+from any directory in the repository.
+
+### Resolving Conflicts
+
+If you see a message like `CONFLICT in <file>. See <file>.merged for manual
+resolution.`, open the `.merged` file, resolve the conflict markers
+(`<<<<<<<`, `=======`, `>>>>>>>`), and replace the original file with the
+resolved version.
+
+### Notes
+
+The script requires `git`, `diff3`, and `diff` to be installed. You can
+customize the upstream repository and branch by editing the script variables.
+No files are modified in `--dry-run` mode.
