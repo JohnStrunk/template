@@ -6,7 +6,7 @@ when making changes to this repository.
 ## Project architecture
 
 The major features and architectural decisions for this project are documented
-in the [`design/`](../design/) directory. Each feature and decision is captured
+in the [`design/`](design/) directory. Each feature and decision is captured
 in a separate markdown file. These documents serve as a reference for
 understanding the rationale behind various design choices and provide context
 for future development.
