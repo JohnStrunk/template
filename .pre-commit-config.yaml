@@ -121,3 +121,28 @@ repos:
     hooks:
       # Check that JSON files are valid JSON5
       - id: check-json5
+
+  - repo: local
+    hooks:
+      # Makes sure the skills table is up-to-date with the skills in the repo
+      - id: update-skills
+        name: Ensure skills are up-to-date
+        entry: .github/instructions/update-skills.py
+        language: system
+        pass_filenames: false
+        always_run: true
+
+# Local hooks for Python type checking and testing
+# - repo: local
+#   hooks:
+#     - id: pyright
+#       name: Type check Python code with Pyright
+#       entry: uv run pyright
+#       language: system
+#       types: [python]
+#     - id: pytest
+#       name: Run Python unit tests with pytest
+#       entry: uv run pytest
+#       language: system
+#       pass_filenames: false
+#       types: [python]
