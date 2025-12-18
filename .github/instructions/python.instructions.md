@@ -96,11 +96,13 @@ def divide_numbers(a: float, b: float) -> float:
 
 ## Critical reminders
 
-AFTER MAKING CHANGES TO ANY PYTHON FILE or PROJECT CONFIGURATION:
+AFTER MAKING CHANGES TO ANY PYTHON FILE or PROJECT CONFIGURATION you MUST
+carry out the following steps without exception:
 
 - Run the tests: `uv run pytest`
 - Run the type checker: `uv run pyright`
 - Run the linter: `uv tool run ruff check`
 - Run the formatter: `uv tool run ruff format`
 
-Fix any issues before declaring the changes complete.
+Any issues found by the above commands MUST be fixed before declaring the
+changes complete.
