@@ -7,6 +7,7 @@
     "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:30b0a0c004ca94d36c323ee993361a7e0ae25ea255ea125201e8a9587501c324",
     // Available features: https://containers.dev/features
     "features": {
+        "ghcr.io/devcontainers/features/copilot-cli:1.0.0": {},
         "ghcr.io/devcontainers/features/github-cli:1.0.15": {},
         "ghcr.io/devcontainers/features/node:1.6.3": {
             "version": "lts",
@@ -23,7 +24,6 @@
 		"Enable corepack": "corepack enable && corepack install -g yarn",
         "Initialize pre-commit environment": "nohup sh -c 'pre-commit install -f --install-hooks &' < /dev/null > /dev/null 2>&1",
         "Install npm tools": "npm install -g @google/gemini-cli markdownlint-cli",
-        "Install python tools": "for pkg in pyright ruff; do uv tool install $pkg; done",
-        "Update skills instructions": ".github/instructions/update-skills.py"
+        "Install python tools": "for pkg in pyright ruff; do uv tool install $pkg; done"
     }
 }

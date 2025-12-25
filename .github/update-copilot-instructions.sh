@@ -20,10 +20,10 @@ fi
 
 # Directories and files to update (relative to repo root)
 TARGETS=(
-  ".github/instructions"
-  ".github/skills"
-  ".github/prompts"
   ".github/agents"
+  ".github/instructions"
+  ".github/prompts"
+  ".github/skills"
   "AGENTS.md"
   "CLAUDE.md"
 )
