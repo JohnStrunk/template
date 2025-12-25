@@ -26,29 +26,45 @@ complete your task:
   `NNNN-a-short-name.md`.
 - [ ] Fill the new file with the information about the feature, using the
   template below.
-- [ ] Based on the feature description, decompose it into a series of simple
-  development tasks suitable for an AI agent to complete. Add those steps as a
-  checklist under "Development tasks", replacing the placeholder.
-- [ ] Use the description and the development tasks to create an automated
-  test plan for this feature. Automated tests are very important to ensure
-  that features continue to work as the codebase and repository evolve.
+- [ ] Based on the description, decompose it into a series of requirements,
+  each of which are specific and testable. Add those requirements as a
+  numbered list under "Requirements", replacing the placeholder.
+- [ ] Based on the feature description and requirements, decompose it into a
+  series of simple development tasks suitable for an AI agent to complete. Add
+  those steps as a checklist under "Development tasks", replacing the
+  placeholder.
+- [ ] Use the description, requirements, and development tasks to create an
+  automated test plan for this feature. Automated tests are very important to
+  ensure that features continue to work as the codebase and repository
+  evolves. Ensure that every requirement is covered by at least one test,
+  referencing the requirement by number.
 
 ## Template
 
 ```markdown
 # {feature title}
 
-{feature summary}
+{short summary of the feature (1-2 sentences)}
 
 ## Description
 
-{feature description}
+{detailed description of the feature}
+
+## Requirements
+
+1. {First specific, testable requirement}
+2. {Second specific, testable requirement}
+3. {Etc.}
 
 ## Development tasks
 
-{PLACEHOLDER}
+- [ ] {First development task}
+- [ ] {Second development task}
+- [ ] {Etc.}
 
 ## Test plan
 
-{PLACEHOLDER}
+- {Description of automated test for requirement 1}
+- {Description of automated test for requirement 2}
+- {Etc.}
 ```
