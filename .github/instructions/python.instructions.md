@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.py,**/pyproject.toml, **/.python-version"
+applyTo: "**"
 description: "Python development standards for code quality, formatting, linting, and testing"
 ---
 
@@ -15,22 +15,25 @@ standards.
 
 ## Package and environment management
 
-- This repository uses [uv](https://docs.astral.sh/uv/) as the package and
-  environment manager. **Do NOT use pip, conda, or any other package manager
-  to install, update, or remove packages.**
-- All package installations, updates, and removals must be performed using
-  uv commands to ensure consistency across development environments.
+- **UV for package management:** This repository uses
+  [uv](https://docs.astral.sh/uv/) as the package and environment manager.
+  **Do NOT use pip, conda, or any other package manager to install, update, or
+  remove packages.** All package installations, updates, and removals must be
+  performed using uv commands to ensure consistency across development
+  environments.
   - Install a package (runtime dependency): `uv add <package-name>`.
   - Install a package (development dependency): `uv add --dev <package-name>`
   - Remove a package: `uv remove <package-name>`
-- When executing Python scripts or modules, always use `uv run <command>` to
-  ensure the correct environment is used.
-
-## Installing tools
-
-- Development tools such as linters, formatters, and testing frameworks must
-  be installed using uv. For example, to install `ruff`, run: `uv tool install
-  ruff`
+  - Always use `uv run <command>` when executing Python scripts or modules to
+    ensure the correct environment is used.
+  - Development tools such as linters, formatters, and testing frameworks must
+    be installed using uv. For example, to install `ruff`, run: `uv tool
+    install ruff`
+- **Python version:** The version of Python used in this repository is
+  specified in the `.python-version` file. Use `uv` to create and manage the
+  Python environment based on this version.
+- **Project settings:** All project settings, including dependencies and
+  tool configurations, must be defined in the `pyproject.toml` file.
 
 ## Formatting and linting
 
@@ -38,8 +41,8 @@ standards.
   to a Python file, run `pre-commit run --files <filename>` to ensure
   compliance. Fix **ALL** linting and formatting errors reported.
 - Code must be fully documented and include type annotations for all
-  functions, methods, classes, and packages. Use reStructuredText style for
-  docstrings.
+  functions, methods, classes, packages, types, and variables/constants of
+  global scope. Use reStructuredText/sphinx style for docstrings.
   - Parameters and return values are documented using the `:param` and
     `:returns:` directives in docstrings.
   - Do not repeat type information in docstrings that is already present in
@@ -52,9 +55,12 @@ standards.
   - Class constructor parameters should be documented in the `__init__` method
     docstring, not in the class docstring.
 
-Example properly documented and typed function:
+Example properly documented and typed code:
 
 ```python
+MAX_RETRIES: int = 5
+"""Maximum number of retries for network operations."""
+
 def divide_numbers(a: float, b: float) -> float:
     """Divide two numbers and return the result.
 
@@ -76,10 +82,11 @@ def divide_numbers(a: float, b: float) -> float:
 
 ## Code structure
 
-- Keep code modular and organized. Each module should have a clear purpose
-  and be as small as possible while still being functional.
-- Use functional programming principles where possible. Avoid unnecessary
-  state and side effects.
+- **Code modularity:** Keep code modular and organized. Each module should
+  have a clear purpose and be as small as possible while still being
+  functional.
+- **Minimize side-effects:** Use functional programming principles where
+  possible to avoid unnecessary state and side effects.
 
 ## Testing
 
@@ -101,8 +108,8 @@ carry out the following steps without exception:
 
 - Run the tests: `uv run pytest`
 - Run the type checker: `uv run pyright`
-- Run the linter: `uv tool run ruff check`
 - Run the formatter: `uv tool run ruff format`
+- Run the linter: `uv tool run ruff check`
 
 Any issues found by the above commands MUST be fixed before declaring the
 changes complete.

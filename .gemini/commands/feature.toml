@@ -1,8 +1,6 @@
----
-description: 'Use this agent to write and revise feature specifications'
----
-
-# Specification writer agent
+description = "Write a new feature specification"
+prompt = """
+# Writing a Feature Specification
 
 Work interactively with the user to create the specification for a feature. A
 feature specification has the following components:
@@ -21,7 +19,8 @@ complete your task:
 
 - [ ] Engage in a dialog with the user to develop answers to the above items.
 - [ ] Scan through the [design/](../../design/) directory and determine the
-  next sequential 4-digit ID number to use.
+  next sequential 4-digit ID number to use. If there are no existing files,
+  start with `0001`.
 - [ ] Create a markdown file in the design directory of the form
   `NNNN-a-short-name.md`.
 - [ ] Fill the new file with the information about the feature, using the
@@ -38,6 +37,9 @@ complete your task:
   ensure that features continue to work as the codebase and repository
   evolves. Ensure that every requirement is covered by at least one test,
   referencing the requirement by number.
+
+After completing these steps, stop. Do not attempt to implement the feature or
+write code. The output of this command is solely the feature specification file.
 
 ## Template
 
@@ -68,3 +70,4 @@ complete your task:
 - {Description of automated test for requirement 2}
 - {Etc.}
 ```
+"""

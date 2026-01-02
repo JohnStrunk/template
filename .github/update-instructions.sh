@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# update-copilot-instructions.sh
-# Update Copilot AI instruction files from upstream template with three-way merge
-# Usage: .github/update-copilot-instructions.sh [--dry-run]
+# update-instructions.sh
+# Update AI instruction files from upstream template with three-way merge
+# Usage: .github/update-instructions.sh [--dry-run]
 
 set -euo pipefail
 
@@ -20,12 +20,14 @@ fi
 
 # Directories and files to update (relative to repo root)
 TARGETS=(
+  ".gemini/commands"
   ".github/agents"
   ".github/instructions"
   ".github/prompts"
   ".github/skills"
   "AGENTS.md"
   "CLAUDE.md"
+  "GEMINI.md"
 )
 
 # Create a temp directory for upstream
