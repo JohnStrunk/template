@@ -1,2 +1,5 @@
 .env
 /.ruff_cache/
+/.uv_cache/
+
+!/.gemini/.env
