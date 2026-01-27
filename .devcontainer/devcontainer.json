@@ -23,7 +23,7 @@
         // while, and we want to minimize waiting during `git commit`
         "Enable corepack": "corepack enable && corepack install -g yarn",
         "Initialize pre-commit environment": "nohup sh -c 'pre-commit install -f --install-hooks &' < /dev/null > /dev/null 2>&1",
-        "Install npm tools": "npm install -g --no-fund @google/gemini-cli markdownlint-cli",
+        "Install npm tools": "npm install -g --no-fund markdownlint-cli opencode-ai",
         "Install python tools": "for pkg in ruff; do uv tool install $pkg; done"
     },
     "containerEnv": {
@@ -31,7 +31,11 @@
         "UV_CACHE_DIR": "${containerWorkspaceFolder}/.uv_cache"
     },
     "mounts": [
-        // Map in user's Gemini config from host
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gemini,target=/home/vscode/.gemini,type=bind,consistency=cached"
-    ]
+        // Map in user's OpenCode config from host
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.config/opencode,target=/home/vscode/.config/opencode,type=bind,consistency=cached"
+    ],
+    "remoteEnv": {
+        // Pass through Context7 API key for MCP access
+        "CONTEXT7_API_KEY": "${localEnv:CONTEXT7_API_KEY}"
+    }
 }
