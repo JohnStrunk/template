@@ -7,7 +7,6 @@
     "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:0fea8c4b6512d8bb1a1419efb9cd0e6585a7a91d76c1cd44494a27849ef730fe",
     // Available features: https://containers.dev/features
     "features": {
-        "ghcr.io/devcontainers/features/copilot-cli:1.0.0": {},
         "ghcr.io/devcontainers/features/github-cli:1.0.15": {},
         "ghcr.io/devcontainers/features/node:1.6.4": {
             "version": "lts",
@@ -23,7 +22,7 @@
         // while, and we want to minimize waiting during `git commit`
         "Enable corepack": "corepack enable && corepack install -g yarn",
         "Initialize pre-commit environment": "nohup sh -c 'pre-commit install -f --install-hooks &' < /dev/null > /dev/null 2>&1",
-        "Install npm tools": "npm install -g --no-fund markdownlint-cli opencode-ai",
+        "Install npm tools": "npm install -g --no-fund @google/gemini-cli markdownlint-cli opencode-ai",
         "Install python tools": "for pkg in ruff; do uv tool install $pkg; done"
     },
     "containerEnv": {
