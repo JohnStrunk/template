@@ -4,5 +4,6 @@
         ".github/lint-all.sh": true,
         "design/new-record.sh": true,
         "markdownlint": true
-    }
+    },
+    "terminal.integrated.sendKeybindingsToShell": true
 }
