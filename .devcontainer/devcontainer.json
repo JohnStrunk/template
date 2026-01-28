@@ -4,7 +4,7 @@
     // https://github.com/devcontainers/images/tree/main/src/base-debian
     // The :debian tag is the latest Debian stable release
     // Other base images: https://github.com/devcontainers/images
-    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:30b0a0c004ca94d36c323ee993361a7e0ae25ea255ea125201e8a9587501c324",
+    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:0fea8c4b6512d8bb1a1419efb9cd0e6585a7a91d76c1cd44494a27849ef730fe",
     // Available features: https://containers.dev/features
     "features": {
         "ghcr.io/devcontainers/features/copilot-cli:1.0.0": {},
