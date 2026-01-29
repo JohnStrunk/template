@@ -1,4 +1,4 @@
-# Gemini Instructions
+# Agent Instructions
 
 @.github/instructions/commit.instructions.md
 @.github/instructions/markdown.instructions.md

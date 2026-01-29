@@ -13,12 +13,6 @@ This is a template to serve as a starting point for new repos.
   [.github/renovate.json5](.github/renovate.json5) for details.
 - Pre-commit configuration to ensure code quality. See
   [.pre-commit-config.yaml](.pre-commit-config.yaml) for details.
-- Configuration files for GitHub Copilot to help with code generation
-  and editing, including custom prompts:
-  - `/enhance-instructions`: Enhance the AI agent's instructions based on the
-    conversation history
-  - `/feature <title>`: Generate a feature specification
-  - `/madr <title>`: Generate a new architectural decision record
 
 ## New project checklist
 
@@ -33,34 +27,28 @@ This is a template to serve as a starting point for new repos.
 - [ ] Update the README with project-specific information
 - [ ] Update the devcontainer configuration based on the project's language
   and dev tools
-- [ ] Update [Copilot setup
-  workflow](.github/workflows/copilot-setup-steps.yaml) with project-specific
-  tools
-- [ ] Update the [Copilot instructions file](.github/copilot-instructions.md)
+- [ ] Update the [AGENTS.md](AGENTS.md)
   with project-specific information
 
-## Copilot Instructions Auto-Update Script
+## AI Instructions Auto-Update Script
 
-This repository includes a script to update Copilot AI instruction files from
-the upstream template repository, merging with local changes.
+This repository includes a script to update AI instruction files from the
+upstream template repository, merging with local changes.
 
 ### Usage
 
 ```bash
-.github/update-copilot-instructions.sh \
+.github/update-instructions.sh \
   # Run update (modifies files)
-.github/update-copilot-instructions.sh --dry-run \
-  # Preview changes only
+.github/update-instructions.sh --dry-run \
+  # Preview changes only (no files are modified)
 ```
 
 The script will fetch the latest versions of:
 
-- `.github/instructions/`
-- `.github/skills/`
-- `.github/prompts/`
-- `.github/agents/`
+- `.claude/skills`
+- `.github/instructions`
 - `AGENTS.md`
-- `CLAUDE.md`
 
 For each file, a three-way merge is performed between your local version, the
 base, and upstream. If a conflict occurs, a `.merged` file is created for
@@ -73,9 +61,3 @@ If you see a message like `CONFLICT in <file>. See <file>.merged for manual
 resolution.`, open the `.merged` file, resolve the conflict markers
 (`<<<<<<<`, `=======`, `>>>>>>>`), and replace the original file with the
 resolved version.
-
-### Notes
-
-The script requires `git`, `diff3`, and `diff` to be installed. You can
-customize the upstream repository and branch by editing the script variables.
-No files are modified in `--dry-run` mode.
