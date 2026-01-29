@@ -7,7 +7,7 @@
     "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:0fea8c4b6512d8bb1a1419efb9cd0e6585a7a91d76c1cd44494a27849ef730fe",
     // Available features: https://containers.dev/features
     "features": {
-        "ghcr.io/devcontainers/features/github-cli:1.0.15": {},
+        "ghcr.io/devcontainers/features/github-cli:1.1.0": {},
         "ghcr.io/devcontainers/features/go:1.3.2":{},
         "ghcr.io/devcontainers/features/node:1.7.0": {
             "version": "lts",
