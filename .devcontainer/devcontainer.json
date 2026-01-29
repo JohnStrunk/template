@@ -41,4 +41,11 @@
         // Pass through Context7 API key for MCP access
         "CONTEXT7_API_KEY": "${localEnv:CONTEXT7_API_KEY}",
     },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "sst-dev.opencode"
+            ]
+        }
+    },
 }
