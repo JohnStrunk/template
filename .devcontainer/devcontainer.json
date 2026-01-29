@@ -32,6 +32,8 @@
         "UV_CACHE_DIR": "${containerWorkspaceFolder}/.uv_cache",
     },
     "mounts": [
+        // Map in the user's GCP credentials for Vertex AI access
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.config/gcloud/application_default_credentials.json,target=/home/vscode/.config/gcloud/application_default_credentials.json,type=bind,ro",
         // Map in user's OpenCode config from host
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.config/opencode,target=/home/vscode/.config/opencode,type=bind,consistency=cached",
     ],
