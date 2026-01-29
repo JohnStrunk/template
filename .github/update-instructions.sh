@@ -20,14 +20,9 @@ fi
 
 # Directories and files to update (relative to repo root)
 TARGETS=(
-  ".gemini/commands"
-  ".github/agents"
+  ".claude/skills"
   ".github/instructions"
-  ".github/prompts"
-  ".github/skills"
   "AGENTS.md"
-  "CLAUDE.md"
-  "GEMINI.md"
 )
 
 # Create a temp directory for upstream
