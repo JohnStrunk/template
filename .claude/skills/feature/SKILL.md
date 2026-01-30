@@ -50,6 +50,8 @@ digraph feature_spec {
     "Write Scenarios with Rules" [shape=box];
     "Write Scenarios without Rules" [shape=box];
     "Add Data Tables where applicable" [shape=box];
+    "Run validation tool" [shape=box];
+    "Scaffold missing steps" [shape=box];
     "STOP - Do not implement" [shape=box, style=bold];
     "Done" [shape=doublecircle];
 
@@ -70,7 +72,9 @@ digraph feature_spec {
     "Determine if Rules needed" -> "Write Scenarios without Rules" [label="no"];
     "Write Scenarios with Rules" -> "Add Data Tables where applicable";
     "Write Scenarios without Rules" -> "Add Data Tables where applicable";
-    "Add Data Tables where applicable" -> "STOP - Do not implement";
+    "Add Data Tables where applicable" -> "Run validation tool";
+    "Run validation tool" -> "Scaffold missing steps";
+    "Scaffold missing steps" -> "STOP - Do not implement";
     "STOP - Do not implement" -> "Done";
 }
 ```
@@ -94,6 +98,17 @@ digraph feature_spec {
 - [ ] Use Data Tables for lists and complex data
 - [ ] Keep scenarios simple (3-7 steps) and focused on behavior
 - [ ] Ensure all scenarios are independently executable
+- [ ] Identify the correct validation tool based on project language:
+  - TypeScript/JavaScript: `npx cucumber-js --dry-run`
+  - Python: `uvx behave -d`
+  - Other: Follow project convention
+- [ ] Run the tool to check for undefined steps
+- [ ] Scaffold ANY undefined steps found:
+  - Create a NEW file for EACH step in `features/steps/` with correct extension
+    (e.g., `features/steps/step_user_logs_in.py` or `.ts`)
+  - Use appropriate pending syntax for the body (e.g., `return 'pending'` or
+    `raise StepNotImplementedError`)
+  - Ensure validation command passes successfully
 
 ## The Template
 
@@ -333,14 +348,14 @@ When requirements are vague, ask:
 
 **STOP.** Do not:
 
-- Implement the feature
-- Write code
-- Create step definitions
+- Implement the feature **logic** (keep steps as pending/not implemented)
+- Write application code
 - Start development tasks
 - Offer to "get started on implementation"
 - Ask "should I begin coding?"
 
-**The output of this skill is ONLY the .feature file.**
+**The output of this skill is the .feature file AND the scaffolded step
+definitions.**
 
-If the user asks you to implement the feature, that's a separate task. Use
+If the user asks you to implement the feature logic, that's a separate task. Use
 appropriate implementation skills for that.
