@@ -22,6 +22,7 @@ fi
 TARGETS=(
   ".claude/skills"
   ".github/instructions"
+  ".opencode/opencode.jsonc"
   "AGENTS.md"
 )
 
