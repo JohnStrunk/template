@@ -27,7 +27,7 @@ playwright-cli unroute
 
 ## URL Patterns
 
-```text
+```
 **/api/users           - Exact path match
 **/api/*/details       - Wildcard in path
 **/*.{png,jpg,jpeg}    - Match file extensions
@@ -36,8 +36,7 @@ playwright-cli unroute
 
 ## Advanced Mocking with run-code
 
-For conditional responses, request body inspection, response modification, or
-delays:
+For conditional responses, request body inspection, response modification, or delays:
 
 ### Conditional Response Based on Request
 
@@ -71,11 +70,9 @@ playwright-cli run-code "async page => {
 
 ```bash
 playwright-cli run-code "async page => {
-  await page.route('**/api/offline', route =>
-    route.abort('internetdisconnected'));
+  await page.route('**/api/offline', route => route.abort('internetdisconnected'));
 }"
-# Options: connectionrefused, timedout, connectionreset,
-# internetdisconnected
+# Options: connectionrefused, timedout, connectionreset, internetdisconnected
 ```
 
 ### Delayed Response
