@@ -1,5 +1,5 @@
 ---
-applyTo: "src/**/*.{ts,tsx}"
+applyTo: "**"
 description: "TypeScript and React development standards for Vite projects"
 ---
 
