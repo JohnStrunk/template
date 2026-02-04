@@ -4,8 +4,7 @@ Generate Playwright test code automatically as you interact with the browser.
 
 ## How It Works
 
-Every action you perform with `playwright-cli` generates corresponding
-Playwright TypeScript code.
+Every action you perform with `playwright-cli` generates corresponding Playwright TypeScript code.
 This code appears in the output and can be copied directly into your test files.
 
 ## Example Workflow
@@ -55,8 +54,7 @@ test('login flow', async ({ page }) => {
 
 ### 1. Use Semantic Locators
 
-The generated code uses role-based locators when possible, which are more
-resilient:
+The generated code uses role-based locators when possible, which are more resilient:
 
 ```typescript
 // Generated (good - semantic)
@@ -79,8 +77,7 @@ playwright-cli click e5
 
 ### 3. Add Assertions Manually
 
-Generated code captures actions but not assertions. Add expectations in
-your test:
+Generated code captures actions but not assertions. Add expectations in your test:
 
 ```typescript
 // Generated action
