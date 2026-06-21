@@ -120,16 +120,14 @@ repos:
       # Check that JSON files are valid JSON5
       - id: check-json5
 
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.26.1
+    hooks:
+      - id: zizmor
+
 # # Local hooks
 # - repo: local
 #   hooks:
-#     - id: zizmor
-#       name: Audit github actions for security issues
-#       entry: uvx zizmor .
-#       language: system
-#       pass_filenames: false
-#       types: [yaml]
-
 #     - id: pyright
 #       name: Type check Python code with Pyright
 #       entry: uv run pyright
