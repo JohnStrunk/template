@@ -1,8 +1,0 @@
-{
-    "chat.tools.terminal.autoApprove": {
-        "pre-commit run": true,
-        ".github/lint-all.sh": true,
-        "markdownlint": true
-    },
-    "terminal.integrated.sendKeybindingsToShell": true
-}

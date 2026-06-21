@@ -24,3 +24,6 @@ queue_rules:
       - "#changes-requested-reviews-by=0"
       - label!=do-not-merge
       - check-success="CI Workflow - Success"
+
+merge_protections_settings:
+  reporting_method: check-runs
