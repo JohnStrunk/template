@@ -37,17 +37,16 @@ done
 # # Install skills
 # # https://skills.sh/
 # # https://github.com/vercel-labs/skills
+# # npx -y skills install upstash/context7 --project --agent antigravity-cli --agent opencode --skill find-docs
 # for skill in \
-#     "coderabbitai/skills@autofix" \
-#     "coderabbitai/skills@code-review" \
 #     "JohnStrunk/skills@ears-gherkin-dev" \
 #     "upstash/context7@find-docs" \
 # ; do
 #     source="$(echo "$skill" | cut -d '@' -f 1)"
 #     skillname="$(echo "$skill" | cut -d '@' -f 2)"
 #     ( cd .. && \
-#     npx -y skills install "$source" --yes \
-#         --agent claude-code \
+#     npx -y skills install "$source" --project \
+#         --agent antigravity-cli \
 #         --agent opencode \
 #         --skill "$skillname"
 #     )
