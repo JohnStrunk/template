@@ -13,32 +13,34 @@
   ],
   // Files to ignore
   "ignorePaths": [
-    ".venv"
+    ".venv",
   ],
   "labels": [
-    "dependencies"
+    "dependencies",
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
   },
+  "minimumReleaseAge": "10 days",
+  "rangeStrategy": "pin",
   "packageRules": [
     {
       "description": "Update golang tag in dockerfile & golang version in workflows in a single PR",
       "groupName": "golang version",
       "matchDepNames": [
         "go",
-        "golang"
-      ]
+        "golang",
+      ],
     },
     {
       "description": "Pin devcontainer image digests",
       "matchManagers": [
-        "devcontainer"
+        "devcontainer",
       ],
       "matchDepTypes": [
-        "image"
+        "image",
       ],
-      "pinDigests": true
+      "pinDigests": true,
     },
     {
       // Features can be pinned, but they don't support the standard :tag@sha256
@@ -46,27 +48,52 @@
       // See: https://github.com/devcontainers/cli/issues/825
       "description": "Devcontainer 'features' don't support digest pinning",
       "matchManagers": [
-        "devcontainer"
+        "devcontainer",
       ],
       "matchDepTypes": [
-        "feature"
+        "feature",
       ],
-      "pinDigests": false
+      "pinDigests": false,
     },
     {
       "description": "Update renovatebot/pre-commit-hooks weekly to decrease noise",
       "matchPackageNames": [
-        "renovatebot/pre-commit-hooks"
+        "renovatebot/pre-commit-hooks",
       ],
       "schedule": [
-        "before 9am on monday"
-      ]
-    }
+        "before 9am on monday",
+      ],
+    },
+    {
+      // Container registries often lack releaseTimestamp metadata, which
+      // causes the default timestamp-required behaviour to mark every
+      // digest pin as permanently pending.  Fall back to the image
+      // creation date so the age check can actually pass.
+      "description": "Use image creation date for container age checks",
+      "matchCategories": [
+        "docker",
+      ],
+      "minimumReleaseAgeBehaviour": "creation-date-fallback",
+    },
+    {
+      "description": "Keep overrides as ranges — they are security/compat floors",
+      "matchDepTypes": [
+        "overrides",
+      ],
+      "rangeStrategy": "replace",
+    },
   ],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
   "rebaseWhen": "auto",
   // "schedule": ["before 7am on Tuesday"],
   "semanticCommits": "disabled",
-  "timezone": "America/New_York"
+  "timezone": "America/New_York",
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": "0 days",
+    "labels": [
+      "dependencies",
+      "security",
+    ],
+  },
 }
