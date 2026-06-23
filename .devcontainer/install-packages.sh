@@ -17,21 +17,32 @@ sudo pkill -x dockerd || true
 sudo pkill -x containerd || true
 sudo /usr/local/share/docker-init.sh
 
+# Package versions to be managed by Renovate
+# renovate: datasource=npm depName=@bitwarden/cli
+BITWARDEN_CLI_VERSION="2026.5.0"
+# renovate: datasource=npm depName=markdownlint-cli2
+MARKDOWNLINT_CLI2_VERSION="0.22.1"
+# renovate: datasource=npm depName=@playwright/cli
+PLAYWRIGHT_CLI_VERSION="0.1.13"
+# renovate: datasource=npm depName=playwright
+PLAYWRIGHT_VERSION="1.60.0"
+# renovate: datasource=pypi depName=ruff
+RUFF_VERSION="0.15.18"
+
 # Install Google Antigravity CLI
 curl -fsSL https://antigravity.google/cli/install.sh | bash
 
 # Install npm tools
 npm install -g --no-fund \
-    @bitwarden/cli@2026.5.0 \
-    markdownlint-cli2@0.22.1 \
-    @playwright/cli@0.1.13
+    @bitwarden/cli@"$BITWARDEN_CLI_VERSION" \
+    markdownlint-cli2@"$MARKDOWNLINT_CLI2_VERSION" \
+    @playwright/cli@"$PLAYWRIGHT_CLI_VERSION"
 
-npx -y playwright@1.60.0 install --with-deps
+npx -y playwright@"$PLAYWRIGHT_VERSION" install --with-deps
 
-# shellcheck disable=SC2043
-for pkg in ruff; do
-   uv tool install $pkg;
-done
+
+uv tool install ruff@"$RUFF_VERSION"
+
 
 
 # # Install skills

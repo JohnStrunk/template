@@ -89,6 +89,22 @@
   // "schedule": ["before 7am on Tuesday"],
   "semanticCommits": "disabled",
   "timezone": "America/New_York",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/\\.sh$/"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>[a-z-]+)\\s+depName=(?<depName>[a-zA-Z0-9/@_-]+)(?:\\s+versioning=(?<versioning>[a-z-]+))?\\s+[A-Z0-9_]+_VERSION=\"(?<currentValue>[^\"]+)\""
+      ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/\\.sh$/"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>[a-z-]+)\\s+depName=(?<depName>[a-zA-Z0-9/@_-]+)(?:\\s+versioning=(?<versioning>[a-z-]+))?\\s+[^#\\n]*?@(?<currentValue>[a-zA-Z0-9.-]+)"
+      ]
+    }
+  ],
   "vulnerabilityAlerts": {
     "minimumReleaseAge": "0 days",
     "labels": [
