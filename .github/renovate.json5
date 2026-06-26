@@ -66,14 +66,14 @@
     },
     {
       // Container registries often lack releaseTimestamp metadata, which
-      // causes the default timestamp-required behaviour to mark every
-      // digest pin as permanently pending.  Fall back to the image
-      // creation date so the age check can actually pass.
+      // causes the default timestamp-required behaviour to mark every digest
+      // pin as permanently pending. Allow updates to proceed even if the
+      // timestamp is missing.
       "description": "Use image creation date for container age checks",
       "matchCategories": [
         "docker",
       ],
-      "minimumReleaseAgeBehaviour": "creation-date-fallback",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
     },
     {
       "description": "Keep overrides as ranges — they are security/compat floors",
