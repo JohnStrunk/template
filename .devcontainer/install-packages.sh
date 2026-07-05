@@ -19,7 +19,7 @@ sudo /usr/local/share/docker-init.sh
 
 # Package versions to be managed by Renovate
 # renovate: datasource=npm depName=@bitwarden/cli
-BITWARDEN_CLI_VERSION="2026.5.0"
+BITWARDEN_CLI_VERSION="2026.6.0"
 # renovate: datasource=npm depName=markdownlint-cli2
 MARKDOWNLINT_CLI2_VERSION="0.22.1"
 # renovate: datasource=npm depName=@playwright/cli
