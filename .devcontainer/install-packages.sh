@@ -23,7 +23,7 @@ BITWARDEN_CLI_VERSION="2026.6.0"
 # renovate: datasource=npm depName=markdownlint-cli2
 MARKDOWNLINT_CLI2_VERSION="0.23.0"
 # renovate: datasource=npm depName=@playwright/cli
-PLAYWRIGHT_CLI_VERSION="0.1.15"
+PLAYWRIGHT_CLI_VERSION="0.1.17"
 # renovate: datasource=npm depName=playwright
 PLAYWRIGHT_VERSION="1.61.1"
 # renovate: datasource=pypi depName=ruff
