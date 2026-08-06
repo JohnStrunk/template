@@ -25,7 +25,7 @@ MARKDOWNLINT_CLI2_VERSION="0.23.2"
 # renovate: datasource=npm depName=@playwright/cli
 PLAYWRIGHT_CLI_VERSION="0.1.17"
 # renovate: datasource=npm depName=playwright
-PLAYWRIGHT_VERSION="1.61.1"
+PLAYWRIGHT_VERSION="1.62.0"
 # renovate: datasource=pypi depName=ruff
 RUFF_VERSION="0.16.0"
 
