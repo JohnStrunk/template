@@ -7,7 +7,7 @@
     "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:025b74bb5f7ac53edd77e01aa7188c359aab100e23a2f6220bde50bbb9fd31dd",
     // Available features: https://containers.dev/features
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:4.0.0": {
+        "ghcr.io/devcontainers/features/docker-in-docker:4.1.0": {
             "moby": false,
         },
         "ghcr.io/devcontainers/features/github-cli:1.1.1": {},
