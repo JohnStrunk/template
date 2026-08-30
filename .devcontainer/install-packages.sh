@@ -19,7 +19,7 @@ sudo /usr/local/share/docker-init.sh
 
 # Package versions to be managed by Renovate
 # renovate: datasource=npm depName=@bitwarden/cli
-BITWARDEN_CLI_VERSION="2026.7.0"
+BITWARDEN_CLI_VERSION="2026.8.0"
 # renovate: datasource=npm depName=markdownlint-cli2
 MARKDOWNLINT_CLI2_VERSION="0.23.2"
 # renovate: datasource=npm depName=@playwright/cli
@@ -27,7 +27,7 @@ PLAYWRIGHT_CLI_VERSION="0.1.18"
 # renovate: datasource=npm depName=playwright
 PLAYWRIGHT_VERSION="1.62.1"
 # renovate: datasource=pypi depName=ruff
-RUFF_VERSION="0.16.3"
+RUFF_VERSION="0.16.4"
 
 # Install Google Antigravity CLI
 curl -fsSL https://antigravity.google/cli/install.sh | bash
