@@ -65,15 +65,17 @@
       ],
     },
     {
-      // Container registries often lack releaseTimestamp metadata, which
-      // causes the default timestamp-required behaviour to mark every digest
-      // pin as permanently pending. Allow updates to proceed even if the
-      // timestamp is missing.
-      "description": "Use image creation date for container age checks",
+      // Container registries (e.g., ghcr.io, mcr.microsoft.com) lack releaseTimestamp
+      // metadata, preventing minimumReleaseAge checks. Disable the timestamp-based age
+      // check and enforce a weekly schedule as a cooldown buffer instead.
+      "description": "Weekly cooldown for container images in lieu of release timestamps",
       "matchCategories": [
         "docker",
       ],
-      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "minimumReleaseAge": null,
+      "schedule": [
+        "before 9am on monday",
+      ],
     },
     {
       "description": "Keep overrides as ranges — they are security/compat floors",
