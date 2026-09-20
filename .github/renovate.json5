@@ -84,6 +84,13 @@
       ],
       "rangeStrategy": "replace",
     },
+    {
+      "description": "Automatically rebase PRs modifying workflow files when out of date to avoid Mergify workflow permission errors",
+      "matchFileNames": [
+        ".github/workflows/**",
+      ],
+      "rebaseWhen": "behind-base-branch",
+    },
   ],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 0,
