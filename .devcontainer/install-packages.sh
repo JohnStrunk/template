@@ -27,7 +27,7 @@ PLAYWRIGHT_CLI_VERSION="0.1.22"
 # renovate: datasource=npm depName=playwright
 PLAYWRIGHT_VERSION="1.64.1"
 # renovate: datasource=pypi depName=ruff
-RUFF_VERSION="0.17.0"
+RUFF_VERSION="0.17.1"
 
 # Install Google Antigravity CLI
 curl -fsSL https://antigravity.google/cli/install.sh | bash
