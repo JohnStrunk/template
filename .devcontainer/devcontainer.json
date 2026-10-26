@@ -4,7 +4,7 @@
     // https://github.com/devcontainers/images/tree/main/src/base-debian
     // The :debian tag is the latest Debian stable release
     // Other base images: https://github.com/devcontainers/images
-    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:1f851004adcd3dff3776b4a1da86727cf52280b0fdc9d5b0568c9c7d74274286",
+    "image": "mcr.microsoft.com/devcontainers/base:debian@sha256:6ee2b4097c75d33e9a94d941577a3286e5d629434fba384688b06daeeaaeac99",
     // Available features: https://containers.dev/features
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:4.1.0": {
