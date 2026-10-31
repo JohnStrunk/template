@@ -21,7 +21,7 @@ sudo /usr/local/share/docker-init.sh
 # renovate: datasource=npm depName=@bitwarden/cli
 BITWARDEN_CLI_VERSION="2026.10.0"
 # renovate: datasource=npm depName=markdownlint-cli2
-MARKDOWNLINT_CLI2_VERSION="0.23.3"
+MARKDOWNLINT_CLI2_VERSION="0.24.0"
 # renovate: datasource=npm depName=@playwright/cli
 PLAYWRIGHT_CLI_VERSION="0.1.22"
 # renovate: datasource=npm depName=playwright
